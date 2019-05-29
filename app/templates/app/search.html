@@ -8,8 +8,8 @@
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
         <div class="site-heading">
-          <h1>Clean Blog</h1>
-          <span class="subheading">A Blog Theme by Start Bootstrap</span>
+          <h1>{{ hashtag }}가 있는 게시글 목록</h1>
+          <span class="subheading">해시태그 검색결과 페이지 입니다.</span>
         </div>
       </div>
     </div>
@@ -22,20 +22,7 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-8 col-md-10 mx-auto">
-      <!-- Searcher -->
-      <div class="dropdown">
-        <button class="btn btn-primary float-right dropdown-toggle" type="button"
-         id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Hashtag 검색
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          {% for hashtag in hashtags.all %}
-          <a class="dropdown-item" href="{% url 'search' hashtag.id %}">{{ hashtag.name }}</a>
-          {% endfor %}
-        </div>
-      </div>
-      <br><br>
-      {% for blog in blogs.all %}
+      {% for blog in hashtag.blog_set.all %}
       <div class="post-preview">
         <a href="{% url 'detail' blog.id %}">
           <h2 class="post-title">

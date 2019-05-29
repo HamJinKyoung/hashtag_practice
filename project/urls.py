@@ -25,5 +25,7 @@ urlpatterns = [
     path('app/new/', app.views.blogform, name='new'),
     path('app/<int:pk>/edit/', app.views.edit, name='edit'),
     path('app/<int:pk>/remove/', app.views.remove, name='remove'),
-    path('app/<int:blog_id>', app.views.detail, name="detail"),
+    path('app/<int:blog_id>', app.views.detail, name='detail'),
+    path('app/hashtag/', app.views.hashtagform, name='hashtag'),
+    path('app/<int:hashtag_id>/search/', app.views.search, name='search'),
 ]
